@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background: #f2f2f2;
+            padding: 15px;
+            position: fixed;
+            left: -200px;
+            transition: 0.3s;
+        }
+        .content {
+            margin-left: 0;
+            padding: 15px;
+            transition: margin-left 0.3s;
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li a {
+            display: block;
+            padding: 8px;
+            background-color: #dddddd;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        .menu li a:hover {
+            background-color: #e7e7e7;
+        }
+        .openbtn {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Mi Landing Page</h1>
+        <button class="openbtn">☰</button>
+    </div>
+    <div class="sidebar">
+        <ul class="menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Bienvenido a Mi Landing Page</h2>
+        <p>Este es el área de contenido donde puedes agregar información sobre tus servicios, productos o cualquier otro contenido relevante.</p>
+    </div>
+    <script is:inline>
+        const btnMenu = document.querySelector('.openbtn');
+
+        btnMenu.addEventListener('click', () => {
+            toggleSidebar();
+        });
+
+        function toggleSidebar() {
+            console.log('toggleSidebar');
+            var sidebar = document.querySelector('.sidebar');
+            var content = document.querySelector('.content');
+                        
+            if (sidebar.style.left == '-200px' || sidebar.style.left == '') {
+                sidebar.style.left = '0';
+                content.style.marginLeft = '200px';
+            } else {
+                sidebar.style.left = '-200px';
+                content.style.marginLeft = '0';
+            }
+        }
+    </script>
+</body>
+</html>
